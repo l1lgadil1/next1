@@ -7,10 +7,12 @@
   font-size: 18px;
   line-height: 25px;
   margin-bottom: 20px;
+  transition: all 0.3s;
 }
 
 
-.firstLevelActive svg{
+
+.firstLevelActive svg path{
   fill:var(--primary);
 }
 .firstLevel:hover, 

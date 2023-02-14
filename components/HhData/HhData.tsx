@@ -1,4 +1,5 @@
 import React from 'react';
+import { priceRu } from '../../helpers/helpers';
 import Card from '../Card/Card';
 import styles from './HhData.module.css';
 import { hhDataInterface } from './hhData.props';
@@ -18,7 +19,7 @@ const HhData = ({
       <Card className={styles.salary}>
         <div className="">
           <div className={styles.title}>Начальный</div>
-          <div className={styles.salaryValue}>{juniorSalary}</div>
+          <div className={styles.salaryValue}>{priceRu(juniorSalary)}</div>
           <div className={styles.rate}>
             <div className={styles.filled}>
               <svg
@@ -66,7 +67,7 @@ const HhData = ({
         </div>
         <div className="">
           <div className={styles.title}>Средний</div>
-          <div className={styles.salaryValue}>{middleSalary}</div>
+          <div className={styles.salaryValue}>{priceRu(middleSalary)}</div>
           <div className={styles.rate}>
             <div className={styles.filled}>
               <svg
@@ -114,7 +115,7 @@ const HhData = ({
         </div>
         <div className="">
           <div className={styles.title}>Профессионал</div>
-          <div className={styles.salaryValue}>{seniorSalary}</div>
+          <div className={styles.salaryValue}>{priceRu(seniorSalary)}</div>
           <div className={styles.rate}>
             <div className={styles.filled}>
               <svg
