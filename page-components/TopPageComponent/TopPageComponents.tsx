@@ -8,6 +8,7 @@ import Card from '../../components/Card/Card';
 import HhData from '../../components/HhData/HhData';
 import Sort from '../../components/Sort/Sort';
 import { TopLevelCategory } from '../../interfaces/toppage.interfase';
+import Products from '../../components/Product/Products';
 import Advantages from '../../components/Advantages/Advantages';
 import { SortEnum } from '../../components/Sort/Sort.props';
 import { sortReducer } from './sort.reducer';
@@ -37,7 +38,7 @@ const TopPageComponents = ({ page, products, firstCategory }: TopPageProps): JSX
         <Sort sort={sort} setSort={setSort} />
       </div>
       <div className="">
-        {sortedProducts ? sortedProducts.map((p) => <div key={p._id}>{p.title}</div>) : null}
+        {sortedProducts ? sortedProducts.map((p) => <Products key={p._id} product={p} />) : null}
       </div>
       <div className={styles.hhTitle}>
         <Htag tag="h2">Вакансии - {page.category}</Htag>
