@@ -9,6 +9,8 @@ import { Button } from '../components';
 import { P } from '../components';
 import { Tag } from '../components';
 import Rating from '../components/Rating/Rating';
+import Input from '../components/Input/Input';
+import TextArea from '../components/TextArea/TextArea';
 import { withLayout } from '../layout/Layout';
 import { GetStaticProps } from 'next';
 import axios from 'axios';
@@ -37,6 +39,8 @@ function Home({ menu, firstCategory }: HomeProps): JSX.Element {
         text
       </Tag>
       <Rating isEditable={true} rating={rating} setRating={setRating} />
+      <Input placeholder="123" />
+      <TextArea placeholder="123" />
     </>
   );
 }

@@ -22,7 +22,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps<TypeProps> = async ({
   params,
 }): GetStaticPropsContext<ParsedUrlQuery> => {
-  console.log(params);
   if (!params) {
     return {
       notFound: true,

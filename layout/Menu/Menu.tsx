@@ -43,7 +43,6 @@ const Menu = (): JSX.Element => {
     );
   };
 
-  console.log(menu);
   const secondLevel = (menuItem: firstLevelMenuItem) => {
     const openSecondLevel = (secondCategory: string) => {
       setMenu &&
