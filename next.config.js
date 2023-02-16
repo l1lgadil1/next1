@@ -2,6 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-}
+  images: {
+    domains: ['courses-top.ru'],
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

@@ -4,7 +4,6 @@ import styles from './Sort.module.css';
 import { SortInterface } from './Sort.props';
 
 const Sort = ({ sort, setSort, className, ...props }: SortInterface): JSX.Element => {
-  console.log(sort);
   return (
     <div className={`${styles.sort} ${className}`} {...props}>
       <div onClick={() => setSort(SortEnum.Rating)}>
