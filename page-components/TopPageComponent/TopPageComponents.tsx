@@ -40,7 +40,7 @@ const TopPageComponents = ({ page, products, firstCategory }: TopPageProps): JSX
       <div className="">
         {sortedProducts ? sortedProducts.map((p) => <Products key={p._id} product={p} />) : null}
       </div>
-      <div className={styles.hhTitle}>
+      <div className={styles.hhTitle}> 
         <Htag tag="h2">Вакансии - {page.category}</Htag>
         <Tag color="red" size="m">
           hh.ru
