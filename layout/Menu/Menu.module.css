@@ -46,12 +46,9 @@
 }
 
 .secondLevelBlock{
-  display: none;
+  overflow: hidden;
 }
-.secondLevelActive:last-child{
-  display: block;
-  margin-bottom: 20px;
-}
+
 .thirdLevel:active,
 .thirdLevel:hover
 {
