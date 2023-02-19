@@ -24,7 +24,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   let paths: string[] = [];
 
   for (const m of firstLevelMenu) {
-    const { data: menu } = await axios.post<MenuItem[]>(API.API, {
+    const { data: menu } = await axios.post<MenuItem[]>(API.topPage.find, {
       firstCategory: m.id,
     });
     paths = paths.concat(menu.flatMap((s) => s.pages.map((p) => `/${m.route}/${p.alias}/`)));
@@ -53,7 +53,7 @@ export const getStaticProps: GetStaticProps<TopPageProps> = async ({
   }
 
   try {
-    const { data: menu } = await axios.post<MenuItem[]>(API.topPage, {
+    const { data: menu } = await axios.post<MenuItem[]>(API.topPage.find, {
       firstCategory: firstCategoryItem.id,
     });
 
@@ -63,9 +63,9 @@ export const getStaticProps: GetStaticProps<TopPageProps> = async ({
       };
     }
 
-    const { data: page } = await axios.get<TopPageModel>(API.byAlias + params.alias);
+    const { data: page } = await axios.get<TopPageModel>(API.topPage.byAlias + params.alias);
 
-    const { data: products } = await axios.post<ProductModel[]>(API.products, {
+    const { data: products } = await axios.post<ProductModel[]>(API.product.find, {
       category: page.category,
       limit: 10,
     });

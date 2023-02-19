@@ -36,7 +36,7 @@ export const getStaticProps: GetStaticProps<TypeProps> = async ({
     };
   }
 
-  const { data: menu } = await axios.post<MenuItem[]>(API.topPage, {
+  const { data: menu } = await axios.post<MenuItem[]>(API.topPage.find, {
     firstCategory: firstCategoryItem.id,
   });
   return {

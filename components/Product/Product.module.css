@@ -82,6 +82,14 @@
 .reviews{
 }
 
+.reviewLink{
+  color:var(--primary);
+  display: flex;
+  align-items:center;
+  gap: 7px;
+  cursor: pointer;
+}
+
 .rating{
   align-self:flex-end;
 }

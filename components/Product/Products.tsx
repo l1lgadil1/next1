@@ -14,6 +14,17 @@ import { API } from '../../helpers/api';
 
 const Products = ({ product, className, ...props }: productProps): JSX.Element => {
   const [isReviewOpened, setIsReviewOpened] = React.useState<boolean>(false);
+
+  const productRef = React.useRef<HTMLDivElement>(null);
+
+  const onScrollToReview = () => {
+    setIsReviewOpened(true);
+    productRef.current?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
+  };
+
   return (
     <>
       <Card className={styles.product}>
@@ -45,7 +56,10 @@ const Products = ({ product, className, ...props }: productProps): JSX.Element =
         <div className={styles.priceTitle}>цена</div>
         <div className={styles.creditTitle}>кредит</div>
         <div className={styles.rateTitle}>
-          {product.reviewCount} {devlOfNum(product.reviewCount, ['отзыв', 'отзыва', 'отзывов'])}
+          <a className={styles.reviewLink} onClick={onScrollToReview}>
+            <span> {product.reviewCount}</span>
+            <span>{devlOfNum(product.reviewCount, ['отзыв', 'отзыва', 'отзывов'])}</span>
+          </a>
         </div>
         <div className={styles.hr}>
           <Divider className={styles.hr} />
@@ -87,15 +101,16 @@ const Products = ({ product, className, ...props }: productProps): JSX.Element =
         </div>
       </Card>
       <Card
+        ref={productRef}
         color="blue"
         className={`${styles.reviews} ${isReviewOpened && styles.opened} ${
           !isReviewOpened && styles.closed
         }`}>
         {product.reviews.map((r) => (
-          <>
+          <div ref={productRef}>
             <Review review={r} key={r._id} />
             <Divider />
-          </>
+          </div>
         ))}
         <ReviewForm productId={product._id} />
       </Card>
