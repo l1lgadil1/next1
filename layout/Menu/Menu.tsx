@@ -85,7 +85,7 @@ const Menu = (): JSX.Element => {
 
   const thirdLevel = (pages: PageItem[], route: string) => {
     return pages.map((p) => (
-      <Link legacyBehavior href={`/${route}/${p.alias}`}>
+      <Link legacyBehavior href={`/${route}/${p.alias}`} key={p._id}>
         <a
           className={`
         ${styles.thirdLevel}

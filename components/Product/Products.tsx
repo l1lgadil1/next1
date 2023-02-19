@@ -10,6 +10,7 @@ import Divider from '../Divider/Divider';
 import Image from 'next/image';
 import Review from '../Review/Review';
 import ReviewForm from '../ReviewForm/ReviewForm';
+import { API } from '../../helpers/api';
 
 const Products = ({ product, className, ...props }: productProps): JSX.Element => {
   const [isReviewOpened, setIsReviewOpened] = React.useState<boolean>(false);
@@ -17,12 +18,7 @@ const Products = ({ product, className, ...props }: productProps): JSX.Element =
     <>
       <Card className={styles.product}>
         <div className={styles.logo}>
-          <Image
-            src={process.env.NEXT_PUBLIC_DOMAIN + product.image}
-            alt={product.title}
-            width={70}
-            height={70}
-          />
+          <Image src={API.API + product.image} alt={product.title} width={70} height={70} />
         </div>
         <div className={styles.title}>{product.title}</div>
         <div className={styles.price}>
