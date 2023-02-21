@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { KeyboardEvent } from 'react';
 
 import styles from './Menu.module.css';
 import format from 'date-fns/format';
@@ -80,6 +80,13 @@ const Menu = (): JSX.Element => {
           }),
         );
     };
+
+    const openSecondLevelKey = (key: KeyboardEvent, category: string) => {
+      if (key.code == 'Enter' || key.code == 'Space') {
+        key.preventDefault();
+        openSecondLevel(category);
+      }
+    };
     return (
       <div className={styles.secondBlock}>
         {menu &&
@@ -90,6 +97,8 @@ const Menu = (): JSX.Element => {
             return (
               <div key={m._id.secondCategory}>
                 <div
+                  tabIndex={0}
+                  onKeyDown={(key: KeyboardEvent) => openSecondLevelKey(key, m._id.secondCategory)}
                   className={styles.secondLevel}
                   onClick={() => openSecondLevel(m._id.secondCategory)}>
                   {m._id.secondCategory}
@@ -102,7 +111,7 @@ const Menu = (): JSX.Element => {
                   className={`
               ${styles.secondLevelBlock}
             `}>
-                  {thirdLevel(m.pages, menuItem.route)}
+                  {thirdLevel(m.pages, menuItem.route, m.isOpened ?? false)}
                 </motion.div>
               </div>
             );
@@ -111,11 +120,12 @@ const Menu = (): JSX.Element => {
     );
   };
 
-  const thirdLevel = (pages: PageItem[], route: string) => {
+  const thirdLevel = (pages: PageItem[], route: string, isOpened: boolean) => {
     return pages.map((p) => (
       <motion.div key={p._id} variants={variantsChildren}>
         <Link legacyBehavior href={`/${route}/${p.alias}`}>
           <a
+            tabIndex={isOpened ? 0 : -1}
             className={`
         ${styles.thirdLevel}
          ${`/${route}/${p.alias}` == router.asPath && styles.thirdLevelActive}
