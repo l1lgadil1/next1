@@ -10,10 +10,7 @@
   "footer footer footer footer";
 }
 
-.header{
-  grid-area: header;
-  display: none;
-}
+
 .sidebar{
   grid-area: sidebar;
 }
@@ -33,13 +30,12 @@
     "body"
     "footer"
     ;
+    gap: 10px;
   }
   .sidebar{
     display: none !important;
   }
-  .header{
-    display: block;
-  }
+
   .body{
     padding: 15px;
   }

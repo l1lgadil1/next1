@@ -10,7 +10,7 @@ const Sidebar = ({ className, ...props }: SidebarProps): JSX.Element => {
   return (
     <div className={`${className} ${styles.sidebar}`} {...props}>
       <Link href="/">
-        <div className={styles.logo}>
+        <span className={styles.logo}>
           <svg
             width="159"
             height="44"
@@ -38,7 +38,7 @@ const Sidebar = ({ className, ...props }: SidebarProps): JSX.Element => {
               fill="#7653FC"
             />
           </svg>
-        </div>
+        </span>
       </Link>
       <Search />
       <Menu />

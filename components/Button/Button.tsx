@@ -1,4 +1,5 @@
 import { ButtonProps } from './Button.props';
+import { motion } from 'framer-motion';
 import styles from './Button.module.css';
 
 export const Button = ({
@@ -9,7 +10,10 @@ export const Button = ({
   ...props
 }: ButtonProps): JSX.Element => {
   return (
-    <button
+    <motion.button
+      whileHover={{
+        scale: 1.05,
+      }}
       {...props}
       className={`${styles.button} ${className} ${
         appearance == 'primary' ? styles.primary : styles.ghost
@@ -33,6 +37,6 @@ export const Button = ({
           </svg>
         </span>
       )}
-    </button>
+    </motion.button>
   );
 };

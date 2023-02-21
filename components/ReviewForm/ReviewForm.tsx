@@ -9,10 +9,22 @@ import TextArea from '../TextArea/TextArea';
 import { ReviewFormInterface } from './ReviewForm.interface';
 import styles from './ReviewForm.module.css';
 import { IReviewForm, IReviewSentResponse } from './ReviewForm.props';
+import { motion } from 'framer-motion';
 
 const ReviewForm: React.FC<IReviewForm> = ({ productId, className, ...props }) => {
   const [isSuccess, setIsSuccess] = React.useState(false);
   const [error, setIsError] = React.useState<string>();
+
+  const variants = {
+    visible: {
+      opacity: 1,
+      height: 'auto',
+    },
+    hidden: {
+      opacity: 0,
+      height: 0,
+    },
+  };
 
   const {
     register,
