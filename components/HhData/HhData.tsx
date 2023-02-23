@@ -2,7 +2,7 @@ import React from 'react';
 import { priceRu } from '../../helpers/helpers';
 import Card from '../Card/Card';
 import styles from './HhData.module.css';
-import { hhDataInterface } from './hhData.props';
+import { hhDataInterface } from './HhData.props';
 
 const HhData = ({
   count,

@@ -110,7 +110,7 @@ const Products = motion(
               <Button appearance="primary">Узнать подрбонее</Button>
               <Button
                 appearance="ghost"
-                arrow={!isReviewOpened && 'right'}
+                arrow={!isReviewOpened ? 'right' : 'none'}
                 onClick={() => setIsReviewOpened((prev) => !prev)}
                 className={styles.reviewButton}>
                 Читать отзывы

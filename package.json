@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "export":"next export",
     "stylelint": "stylelint \"**/*.css\" --fix",
     "lint": "next lint"
   },
@@ -21,6 +22,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.43.1",
+    "react-yandex-metrika": "^2.6.0",
     "typescript": "4.9.5"
   },
   "devDependencies": {

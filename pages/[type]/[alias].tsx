@@ -9,12 +9,28 @@ import { ProductModel } from '../../interfaces/product.inreface';
 import { firstLevelMenu } from '../../helpers/helpers';
 import TopPageComponents from '../../page-components/TopPageComponent/TopPageComponents';
 import { API } from '../../helpers/api';
+import Head from 'next/head';
+import { Error404 } from '../404';
 
 const TopPage = ({ firstCategory, page, products }: TopPageProps): JSX.Element => {
+  if (!page || !products) {
+    return <Error404 />;
+  }
+
   return (
-    <>
-      <TopPageComponents firstCategory={firstCategory} page={page} products={products} />
-    </>
+    page &&
+    products.length && (
+      <>
+        <Head>
+          <title>{page.title}</title>
+          <meta name="description" content={page.metaDescription} />
+          <meta property="og:title" content={page.metaTitle} />
+          <meta property="og:description" content={page.metaDescription} />
+          <meta property="og:type" content="article" />
+        </Head>
+        <TopPageComponents firstCategory={firstCategory} page={page} products={products} />
+      </>
+    )
   );
 };
 

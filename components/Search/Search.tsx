@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ChangeEvent, KeyboardEvent, KeyboardEventHandler } from 'react';
 import { SearchProps } from './Search.props';
 import styles from './Search.module.css';
 import Input from '../Input/Input';
@@ -18,7 +18,7 @@ const Search = ({ className, ...props }: SearchProps): JSX.Element => {
     });
   };
 
-  const handleKeyDown = (e: KeyboardEvent) => {
+  const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key == 'Enter') {
       goToSearch();
     }
@@ -29,7 +29,7 @@ const Search = ({ className, ...props }: SearchProps): JSX.Element => {
       <Input
         value={search}
         className={styles.input}
-        onChange={(e) => setSearch(e.target.value)}
+        onChange={(e: ChangeEvent<HTMLInputElement>) => setSearch(e.target.value)}
         placeholder="Поиск..."
         onKeyDown={handleKeyDown}
       />
